@@ -9,26 +9,38 @@ CREATE DATABASE
 
 # 2. Creación de usuarios
 
-## 2.a. 
+## 2.a.i
 
-```sql
+```postgresql
 biblioteca=# CREATE ROLE admin_biblio WITH LOGIN PASSWORD 'adminpass';
-CREATE ROLE
-biblioteca=# CREATE ROLE usuario_biblio WITH LOGIN PASSWORD 'usuariopass';
 CREATE ROLE
 biblioteca=# GRANT ALL PRIVILEGES ON DATABASE biblioteca TO admin_biblio;
 GRANT
 biblioteca=# ALTER DATABASE biblioteca OWNER TO admin_biblio;
 ALTER DATABASE
-biblioteca=# CREATE ROLE lectores NOLOGIN;
+```
+
+## 2.a.ii
+
+```postgresql
+biblioteca=# CREATE ROLE usuario_biblio WITH LOGIN PASSWORD 'usuariopass';
 CREATE ROLE
-biblioteca=# GRANT lectores TO usuario_biblio;
+postgres=# GRANT CONNECT ON DATABASE biblioteca TO usuario_biblio;
 GRANT
 ```
 
-## 2.b. 
+## 2.b (kyli, aclara que el SELECT ON ALL TABLES funca porque lo escribimos posterior a crear las tablas)
 
-## 2.c. 
+```postgresql
+biblioteca=# CREATE ROLE lectores NOLOGIN;
+CREATE ROLE
+biblioteca=# GRANT USAGE ON SCHEMA public TO lectores;
+GRANT
+biblioteca=# GRANT SELECT ON ALL TABLES IN SCHEMA public TO lectores;
+GRANT
+```
+
+## 2.c 
 
 ```postgresql
 biblioteca=# GRANT lectores TO usuario_biblio;
@@ -36,6 +48,8 @@ GRANT ROLE
 ```
 
 ## 2.d. 
+
+![Salida consulta](assets/2_d.png)
 
 ## 2.e. 
 
@@ -45,6 +59,10 @@ ALTER ROLE
 ```
 
 ## 2.f. 
+
+```postgresql
+biblioteca=# REVOKE DELETE ON ALL TABLES IN SCHEMA public FROM usuario_biblio;
+```
 
 # 3. Creación de tablas
 
