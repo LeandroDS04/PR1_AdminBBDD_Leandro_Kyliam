@@ -1,8 +1,30 @@
 # PR1_AdminBBDD_Leandro_Kyliam
 
+# 1. Creación de la base de datos
+
+```postgresql
+CREATE DATABASE biblioteca;
+CREATE DATABASE
+```
+
 # 2. Creación de usuarios
 
 ## 2.a. 
+
+```sql
+biblioteca=# CREATE ROLE admin_biblio WITH LOGIN PASSWORD 'adminpass';
+CREATE ROLE
+biblioteca=# CREATE ROLE usuario_biblio WITH LOGIN PASSWORD 'usuariopass';
+CREATE ROLE
+biblioteca=# GRANT ALL PRIVILEGES ON DATABASE biblioteca TO admin_biblio;
+GRANT
+biblioteca=# ALTER DATABASE biblioteca OWNER TO admin_biblio;
+ALTER DATABASE
+biblioteca=# CREATE ROLE lectores NOLOGIN;
+CREATE ROLE
+biblioteca=# GRANT lectores TO usuario_biblio;
+GRANT
+```
 
 ## 2.b. 
 
