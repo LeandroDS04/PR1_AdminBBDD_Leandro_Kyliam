@@ -29,7 +29,7 @@ postgres=# GRANT CONNECT ON DATABASE biblioteca TO usuario_biblio;
 GRANT
 ```
 
-## 2.b (kyli, aclara que el SELECT ON ALL TABLES funca porque lo escribimos posterior a crear las tablas)
+## 2.b (kyli, aclara que el SELECT ON ALL TABLES funca porque se esta escribiendo el comando posterior a crear las tablas en el tercer apartado)
 
 ```postgresql
 biblioteca=# CREATE ROLE lectores NOLOGIN;
@@ -62,6 +62,7 @@ ALTER ROLE
 
 ```postgresql
 biblioteca=# REVOKE DELETE ON ALL TABLES IN SCHEMA public FROM usuario_biblio;
+REVOKE
 ```
 
 # 3. Creación de tablas
@@ -78,5 +79,53 @@ CREATE TABLE
 biblioteca=# CREATE TABLE prestamos(id_prestamo SERIAL PRIMARY KEY, id_libro INTEGER NOT NULL REFERENCES libros(id_libro), fecha_prestamo DATE NOT NULL, fecha_devolucion DATE, usuario_prestatario TEXT NOT NULL);
 CREATE TABLE
 ```
+
+# 4. Inserción de datos
+
+# 5. Consultas básicas
+
+![Listar](assets/5_a.png)
+![Listar](assets/5_a.png)
+![Mostrar](assets/5_b.png)
+![Mostrar](assets/5_b.png)
+![Obtener](assets/5_c.png)
+![Obtener](assets/5_c.png)
+
+# 6. Consultas con agregación
+
+![Calcular](assets/6_a.png)
+![Calcular](assets/6_a.png)
+![Obtener](assets/6_b.png)
+![Obtener](assets/6_b.png)
+
+# 7. Modificación de datos
+
+![Actualizar fecha](assets/7_a.png)
+![Actualizar fecha](assets/7_a.png)
+![Eliminar libro](assets/7_b.png)
+![Eliminar libro](assets/7_b.png)
+
+# 8. Creación de vistas
+
+![Crear vista](assets/8_a.png)
+![Crear vista](assets/8_a.png)
+![Conceder permisos](assets/8_b_part1.png)
+![Conceder permisos](assets/8_b_part1.png)
+![Conceder permisos](assets/8_b_part2.png)
+![Conceder permisos](assets/8_b_part2.png)
+
+# 9. Funciones y consultas avanzadas
+
+![Crear funcion](assets/9_a.png)
+![Crear funcion](assets/9_a.png)
+![Crear consulta](assets/9_b.png)
+![Crear consulta](assets/9_b.png)
+
+# 10. Exportación e importación de datos
+
+![Salida exportacion](assets/10_a.png)
+![Salida exportacion](assets/10_a.png)
+![Salida importacion](assets/10_b.png)
+![Salida importacion](assets/10_b.png)
 
 ### Práctica hecha por Leandro Delli Santi y Kyliam Chinea Salcedo, alu0101584003 y alu0101548050 respectivamente
