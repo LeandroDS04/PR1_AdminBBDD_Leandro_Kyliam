@@ -72,13 +72,20 @@ REVOKE
 ```postgresql
 biblioteca=# CREATE TABLE autores(id_autor SERIAL PRIMARY KEY, nombre TEXT NOT NULL, nacionalidad TEXT);
 CREATE TABLE
+```
+![Actualizar fecha](assets/3_a_autores.png)
 
+```postgresql
 biblioteca=# CREATE TABLE libros(id_libro SERIAL PRIMARY KEY, titulo TEXT NOT NULL, año_publicacion REAL, id_autor INTEGER NOT NULL REFERENCES autores(id_autor));
 CREATE TABLE
+```
+![Actualizar fecha](assets/3_a_libros.png)
 
+```postgresql
 biblioteca=# CREATE TABLE prestamos(id_prestamo SERIAL PRIMARY KEY, id_libro INTEGER NOT NULL REFERENCES libros(id_libro), fecha_prestamo DATE NOT NULL, fecha_devolucion DATE, usuario_prestatario TEXT NOT NULL);
 CREATE TABLE
 ```
+![Actualizar fecha](assets/3_a_prestamos.png)
 
 # 4. Inserción de datos
 
