@@ -89,6 +89,13 @@ CREATE TABLE
 
 # 4. Inserción de datos
 
+![Listar](assets/4_a_autores.png)
+![Listar](assets/4_a_autores_pg.png)
+![Listar](assets/4_a_libros.png)
+![Listar](assets/4_a_libros_pg.png)
+![Listar](assets/4_a_prestamos.png)
+![Listar](assets/4_a_prestamos_pg.png)
+
 # 5. Consultas básicas
 
 ![Listar](assets/5_a.png)
